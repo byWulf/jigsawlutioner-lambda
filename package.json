@@ -2,7 +2,7 @@
   "name": "jigsawlutioner-lambda",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "jigsawlutioner.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/byWulf/jigsawlutioner-lambda.git"
@@ -12,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/byWulf/jigsawlutioner-lambda/issues"
   },
-  "homepage": "https://github.com/byWulf/jigsawlutioner-lambda#readme"
+  "homepage": "https://github.com/byWulf/jigsawlutioner-lambda#readme",
+  "dependencies": {
+    "jigsawlutioner": "git+ssh://git@github.com:byWulf/jigsawlutioner.git"
+  }
 }
