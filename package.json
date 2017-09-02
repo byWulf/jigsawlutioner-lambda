@@ -1,0 +1,16 @@
+{
+  "name": "jigsawlutioner-lambda",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byWulf/jigsawlutioner-lambda.git"
+  },
+  "author": "byWulf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byWulf/jigsawlutioner-lambda/issues"
+  },
+  "homepage": "https://github.com/byWulf/jigsawlutioner-lambda#readme"
+}
