@@ -20,3 +20,7 @@ exports.parseImage = (event, context, callback) => {
         callback(err);
     });
 };
+
+exports.getPlacements = (event, context, callback) => {
+    callback(null, Jigsawlutioner.Matcher.getPlacements(event.pieces));
+};
