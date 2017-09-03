@@ -12,9 +12,7 @@ exports.parseImage = (event, context, callback) => {
         callback(null, {
             pieceIndex: piece.pieceIndex,
             sides: piece.sides,
-            diffs: piece.diffs,
-            boundingBox: borderData.boundingBox,
-            dimensions: borderData.dimensions
+            boundingBox: borderData.boundingBox
         });
     }).catch((err) => {
         callback(err);
