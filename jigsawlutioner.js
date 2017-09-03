@@ -22,3 +22,7 @@ exports.parseImage = (event, context, callback) => {
 exports.getPlacements = (event, context, callback) => {
     callback(null, Jigsawlutioner.Matcher.getPlacements(event.pieces));
 };
+
+exports.findExistingPieceIndex = (event, context, callback) => {
+    callback(null, Jigsawlutioner.Matcher.findExistingPieceIndex(event.pieces, event.piece));
+};
