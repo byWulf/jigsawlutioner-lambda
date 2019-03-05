@@ -4,7 +4,8 @@ exports.parseImage = (event, context, callback) => {
     let borderData = null;
     Jigsawlutioner.BorderFinder.findPieceBorder(Buffer.from(event.imageData, 'base64'), {
         threshold: event.threshold || 225,
-        reduction: event.reduction || 2
+        reduction: event.reduction || 2,
+        returnTransparentImage: !!event.returnTransparentImage
     }).then((borderResult) => {
         borderData = borderResult;
         return Jigsawlutioner.SideFinder.findSides(event.pieceIndex, borderData.path);
