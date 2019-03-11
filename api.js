@@ -59,12 +59,17 @@ app.post('/api/v1/:endpoint', (request, response) => {
     console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Got request for endpoint "' + request.params.endpoint + '"');
     try {
         lambdaMappings[request.params.endpoint](request.body, null, (err, result) => {
-            console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending success response for endpoint "' + request.params.endpoint + '"');
-            response.send(result);
+            if (err) {
+                console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending error response for endpoint "' + request.params.endpoint + '"');
+                response.status(500).send(err);
+            } else {
+                console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending success response for endpoint "' + request.params.endpoint + '"');
+                response.send(result);
+            }
         });
     } catch (err) {
-        console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending error response for endpoint "' + request.params.endpoint + '"');
-        response.send(err);
+        console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending exception response for endpoint "' + request.params.endpoint + '"');
+        response.status(500).send(err);
     }
 });
 app.get('/healthcheck', (request, response) => {
