@@ -2,3 +2,5 @@
 node_modules/
 images/
 jigsawlutioner-lambda.zip
+
+api_conf.json
