@@ -14,6 +14,14 @@ function getFormattedDate() {
     return str;
 }
 
+function errorToObject(err) {
+    return {
+        errorMessage: err.message,
+        errorType: err.name,
+        stackTrace: err.stack
+    };
+}
+
 // Loading config
 const configFile = __dirname + '/api_conf.json';
 if (!fs.existsSync(configFile)) {
@@ -61,7 +69,7 @@ app.post('/api/v1/:endpoint', (request, response) => {
         lambdaMappings[request.params.endpoint](request.body, null, (err, result) => {
             if (err) {
                 console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending error response for endpoint "' + request.params.endpoint + '"');
-                response.status(500).send(err);
+                response.status(500).send(errorToObject(err));
             } else {
                 console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending success response for endpoint "' + request.params.endpoint + '"');
                 response.send(result);
@@ -69,7 +77,7 @@ app.post('/api/v1/:endpoint', (request, response) => {
         });
     } catch (err) {
         console.log('[' + getFormattedDate() + '] #' + callCounter + ' - Sending exception response for endpoint "' + request.params.endpoint + '"');
-        response.status(500).send(err);
+        response.status(500).send(errorToObject(err));
     }
 });
 app.get('/healthcheck', (request, response) => {
