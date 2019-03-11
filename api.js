@@ -39,7 +39,7 @@ app.use(bodyParser.json({
 
 let callCounter = 0;
 app.post('/api/v1/:endpoint', (request, response) => {
-    const lambda = require('jigsawlutioner');
+    const lambda = require('./jigsawlutioner');
     const lambdaMappings = {
         'parseimage': lambda.parseImage,
         'findexistingpieceindex': lambda.findExistingPieceIndex,
