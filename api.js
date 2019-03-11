@@ -44,6 +44,9 @@ app.post('/api/v1/:endpoint', (request, response) => {
         response.send(result);
     });
 });
+app.get('/healthcheck', (request, response) => {
+    response.send('ok.');
+});
 
 app.listen(config.port, () => {
     console.log('API server started on port ' + config.port + '.');
