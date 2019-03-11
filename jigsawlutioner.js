@@ -25,3 +25,5 @@ exports.getPlacements = (event, context, callback) => {
 exports.findExistingPieceIndex = (event, context, callback) => {
     callback(null, Jigsawlutioner.Matcher.findExistingPieceIndex(event.pieces, event.piece));
 };
+
+module.exports = exports;
