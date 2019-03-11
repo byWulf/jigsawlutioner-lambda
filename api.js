@@ -33,7 +33,9 @@ if (!config.apiKey) {
 
 // Starting server
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit: '200mb'
+}));
 
 let callCounter = 0;
 app.post('/api/v1/:endpoint', (request, response) => {
